@@ -1,1 +1,27 @@
-<p>pedidos works!</p>
+<div class="card">
+    <h5 class="card-header">Pedidos</h5>
+    <div class="card-body">
+      <h5 class="card-title">Listado de pedidos:</h5>
+
+
+
+      <table class="table table-bordered" *ngIf="pedidos?.length != 0">
+        <thead>
+            <tr>
+                <th  scope="col">id Pedido</th>
+                <th scope="col">Cliente</th>
+                <th scope="col">Productos</th>
+                <th scope="col">total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let pedido of pedidos">
+              <td>{{pedido.id}}</td>
+              <td>{{pedido.cliente}}</td>
+              <td>{{pedido.productos}}</td>
+            </tr>
+        </tbody>
+      </table>
+      
+    </div>
+  </div>

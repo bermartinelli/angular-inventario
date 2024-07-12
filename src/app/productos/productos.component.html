@@ -1,1 +1,36 @@
-<p>productos works!</p>
+<div class="card">
+    <h5 class="card-header">Productos</h5>
+    <div class="card-body">
+      <h5 class="card-title">Listado de Productos:</h5>
+
+
+      <div *ngIf="productos?.length == 0" class="alert alert-info">
+        No hay registros en la base de datos.
+
+      </div>
+
+      <table class="table table-bordered" *ngIf="productos?.length != 0">
+        <thead>
+            <tr>
+                <th  scope="col">Nombre</th>
+                <th scope="col">Stock</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let producto of productos">
+              <td>{{producto.nombre}}</td>
+              <td>{{producto.stock}}</td>
+              <td>
+                <button (click)="abrirModal(producto)"
+                class="btn btn-primary"
+                >Detalle</button>
+              </td>
+            </tr>
+        </tbody>
+      </table>
+      
+    </div>
+  </div>
+
+  <app-detalle-producto *ngIf="productoSeleccionado" [producto] = "productoSeleccionado">    </app-detalle-producto>>

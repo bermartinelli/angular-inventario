@@ -1,0 +1,45 @@
+<div class="card bg-dark text-white">
+    <div class="card-header">NUEVO PEDIDO</div>
+    <div class="card-body">
+      <form #clienteForm="ngForm">
+
+
+        <div class="form-group">
+          <label for="cliente">Seleccionar Cliente</label>
+          <select name="cliente" class="form-control" [(ngModel)]="nuevoPedido.cliente" #name="ngModel">
+            <option [ngValue]="null" disabled hidden></option>
+            <option *ngFor="let cliente of clientes" >{{ cliente.nombre }} {{cliente.apellido}}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+            <label for="producto1">Seleccionar Producto</label>
+            <select name="producto1" class="form-control" [(ngModel)]="nuevoPedido.productos[0]" #name="ngModel">
+                <option [ngValue]="null" disabled hidden></option>
+              <option *ngFor="let producto of productos" >{{ producto.nombre }}</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="producto2">Seleccionar Producto 2</label>
+            <select name="producto2" class="form-control" [(ngModel)]="nuevoPedido.productos[1]" #name="ngModel">
+                <option [ngValue]="null" disabled hidden></option>
+              <option *ngFor="let producto of productos" >{{ producto.nombre }}</option>
+            </select>
+          </div>
+
+
+          <div class="form-group">
+            <label for="producto3">Seleccionar Producto 3</label>
+            <select name="producto3" class="form-control" [(ngModel)]="nuevoPedido.productos[2]" #name="ngModel">
+                <option [ngValue]="null" disabled hidden></option>
+              <option *ngFor="let producto of productos" >{{ producto.nombre }}</option>
+            </select>
+          </div>
+
+
+        <button class="btn btn-primary" role="button" (click)="create()" >CREAR PEDIDO</button>
+    </form>
+    </div>
+  </div>
+  

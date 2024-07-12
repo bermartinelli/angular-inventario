@@ -21,19 +21,13 @@ export class ClientesComponent {
   ) { }
 
   ngOnInit(): void {
-    this.activatedRoute.paramMap.subscribe(params =>{
-      let page: number = +params.get('page')!;
-      if(!page){
-        page=0;
-      }
-  
+    
     this.clienteService.getClientes().subscribe(
       response => {
         this.clientes = response as Cliente[];
       }
       
     );
-    });
 
-};
+  };
 }

@@ -3,10 +3,13 @@
     <div class="card-body">
       <h5 class="card-title">Listado de clientes:</h5>
 
-      <div class="mb-3">
-        
+      <div class="mb-3 ">
         <button class="btn btn-rounded btn-primary" type="button" [routerLink]="['/clientes/form']" routerLinkActive="router-link-active" >Nuevo Cliente</button>
+        <button class="btn btn-rounded btn-success mx-3" type="button" [routerLink]="['/clientes/nuevo-pedido']" routerLinkActive="router-link-active" >Nuevo Pedido</button>
+
       </div>
+
+  
 
       <div *ngIf="clientes?.length == 0" class="alert alert-info">
         No hay registros en la base de datos.
@@ -16,24 +19,20 @@
       <table class="table table-bordered" *ngIf="clientes?.length != 0">
         <thead>
             <tr>
-                <th  scope="col">Avatar</th>
-                <th scope="col">Nombre</th>
+                <th  scope="col">Nombre</th>
                 <th scope="col">Apellido</th>
                 <th scope="col">email</th>
-                <th scope="col">id</th>
+                <th scope="col">direccion</th>
+                <th scope="col">id cliente</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let cliente of clientes">
-
-                <td>
-                  <img *ngIf="cliente?.avatar"
-                  class="img img-thumbnail rounded"
-                  src="{{cliente?.avatar}}" alt="{{cliente.avatar}}"
-                  style="width: 64px; cursor: pointer;">
-                </td>
-                <td>{{cliente.name}}</td>
-                <td>{{cliente.email}}</td>
+              <td>{{cliente.nombre}}</td>
+              <td>{{cliente.apellido}}</td>
+              <td>{{cliente.email}}</td>
+              <td>{{cliente.direccion}}</td>
+              <td>{{cliente.id}}</td>
             </tr>
         </tbody>
       </table>
